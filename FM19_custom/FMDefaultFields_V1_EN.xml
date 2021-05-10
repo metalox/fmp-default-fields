@@ -1,47 +1,306 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <FMDefaultFields version="2.1.0.0" Source="19.0.1" locale="English">
-	<ObjectList membercount="5">
-		<Field id="1" name="PrimaryKey" fieldtype="Normal" datatype="Text" comment="Unique identifier of each record in this table">
-			<AutoEnter type="Calculated" prohibitModification="True" overwriteExisting="True" alwaysEvaluate="False">
-				<Calculated>
-					<Calculation>
-						<Text><![CDATA[GET( UUID )]]></Text>
-					</Calculation>
-				</Calculated>
-			</AutoEnter>
-			<Validation type="OnlyDuringDataEntry" allowOverride="False" notEmpty="True" unique="True" existing="False"></Validation>
-			<Storage autoIndex="True" index="Minimal" global="False" maxRepetitions="1">
-				<LanguageReference name="Unicode" id="2"></LanguageReference>
-			</Storage>
-			<TagList primary="True">#_FMI_0 </TagList>
-		</Field>
-		<Field id="2" name="CreationTimestamp" fieldtype="Normal" datatype="Timestamp" comment="Date and time each record was created">
-			<AutoEnter type="CreationTimestamp" prohibitModification="True"></AutoEnter>
-			<Validation type="OnlyDuringDataEntry" allowOverride="False" notEmpty="True" unique="False" existing="False">
-				<Strict>FourDigitYear</Strict>
-			</Validation>
-			<Storage autoIndex="True" index="None" global="False" maxRepetitions="1"></Storage>
-			<TagList>#_FMI_0 </TagList>
-		</Field>
-		<Field id="3" name="CreatedBy" fieldtype="Normal" datatype="Text" comment="Account name of the user who created each record">
-			<AutoEnter type="CreationAccountName" prohibitModification="True"></AutoEnter>
-			<Validation type="OnlyDuringDataEntry" allowOverride="False" notEmpty="True" unique="False" existing="False"></Validation>
-			<Storage autoIndex="True" index="None" global="False" maxRepetitions="1"></Storage>
-			<TagList>#_FMI_0 </TagList>
-		</Field>
-		<Field id="4" name="ModificationTimestamp" fieldtype="Normal" datatype="Timestamp" comment="Date and time each record was last modified">
-			<AutoEnter type="ModificationTimestamp" prohibitModification="True"></AutoEnter>
-			<Validation type="OnlyDuringDataEntry" allowOverride="False" notEmpty="True" unique="False" existing="False">
-				<Strict>FourDigitYear</Strict>
-			</Validation>
-			<Storage autoIndex="True" index="None" global="False" maxRepetitions="1"></Storage>
-			<TagList>#_FMI_0 </TagList>
-		</Field>
-		<Field id="5" name="ModifiedBy" fieldtype="Normal" datatype="Text" comment="Account name of the user who last modified each record">
-			<AutoEnter type="ModificationAccountName" prohibitModification="True"></AutoEnter>
-			<Validation type="OnlyDuringDataEntry" allowOverride="False" notEmpty="True" unique="False" existing="False"></Validation>
-			<Storage autoIndex="True" index="None" global="False" maxRepetitions="1"></Storage>
-			<TagList>#_FMI_0 </TagList>
-		</Field>
-	</ObjectList>
+						<ObjectList membercount="24">
+
+						<Field id="1" name="id_tableName" fieldtype="Normal" datatype="Text" comment="primary key">
+							<AutoEnter type="Calculated" prohibitModification="True" overwriteExisting="True" alwaysEvaluate="False">
+								<Calculated>
+									<Calculation>
+										<TableOccurrenceReference id="1065091" name="zzz_template" UUID="7B6DB006-1BB3-4AC5-A5E5-149BE985E378"></TableOccurrenceReference>
+										<Text><![CDATA[Get( UUID )]]></Text>
+									</Calculation>
+								</Calculated>
+							</AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="True" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList primary="True">#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="2" name="key_SN" fieldtype="Normal" datatype="Number" comment="human readable serial number - use id as Primary Key">
+							<AutoEnter type="SerialNumber" prohibitModification="True">
+								<SerialNumber increment="1" nextvalue="1" generate="OnCreation"></SerialNumber>
+							</AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="True" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="3" name="x_join" fieldtype="Normal" datatype="Number" comment="connector utility">
+							<AutoEnter type="" prohibitModification="False"></AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="False" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="4" name="za_createAccount" fieldtype="Normal" datatype="Text" comment="creation account">
+							<AutoEnter type="CreationAccountName" prohibitModification="True"></AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="False" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="5" name="za_createTimstamp" fieldtype="Normal" datatype="Timestamp" comment="creation timestamp">
+							<AutoEnter type="Calculated" prohibitModification="True" overwriteExisting="True" alwaysEvaluate="False">
+								<Calculated>
+									<Calculation>
+										<TableOccurrenceReference id="1065091" name="zzz_template" UUID="7B6DB006-1BB3-4AC5-A5E5-149BE985E378"></TableOccurrenceReference>
+										<Text><![CDATA[Get(CurrentHostTimestamp)]]></Text>
+									</Calculation>
+								</Calculated>
+							</AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="False" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="6" name="za_modAccount" fieldtype="Normal" datatype="Text" comment="modification account">
+							<AutoEnter type="Calculated" prohibitModification="True" overwriteExisting="True" alwaysEvaluate="False">
+								<Calculated>
+									<Calculation>
+										<TableOccurrenceReference id="1065091" name="zzz_template" UUID="7B6DB006-1BB3-4AC5-A5E5-149BE985E378"></TableOccurrenceReference>
+										<Text><![CDATA[Let ([
+  ~trigger = GetField ( "" )
+];
+  Case ( $modoverride <> 1 ; Get(AccountName) ; Self )
+)]]></Text>
+									</Calculation>
+								</Calculated>
+							</AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="False" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="7" name="za_modTimestamp" fieldtype="Normal" datatype="Timestamp" comment="modification timestamp">
+							<AutoEnter type="Calculated" prohibitModification="True" overwriteExisting="True" alwaysEvaluate="False">
+								<Calculated>
+									<Calculation>
+										<TableOccurrenceReference id="1065091" name="zzz_template" UUID="7B6DB006-1BB3-4AC5-A5E5-149BE985E378"></TableOccurrenceReference>
+										<Text><![CDATA[Let ([
+  ~trigger = GetField ( "" )
+];
+  Case ( $modoverride <> 1 ; Get(CurrentHostTimestamp) ; Self )
+)]]></Text>
+									</Calculation>
+								</Calculated>
+							</AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="False" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="8" name="zk_keySortNumber" fieldtype="Normal" datatype="Number" comment="Convert to Unstored Calc: utility for (portal) sorting - sort by this field for number sorting">
+							<AutoEnter type="Calculated" prohibitModification="True" overwriteExisting="True" alwaysEvaluate="False">
+								<Calculated>
+									<Calculation>
+										<TableOccurrenceReference id="1065091" name="zzz_template" UUID="7B6DB006-1BB3-4AC5-A5E5-149BE985E378"></TableOccurrenceReference>
+										<Text><![CDATA[GetAsNumber ( GetField( JSONGetElement ( zg_SORTSELECT ; "fieldName" )))]]></Text>
+									</Calculation>
+								</Calculated>
+							</AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="True" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="9" name="zk_keySortText" fieldtype="Normal" datatype="Text" comment="Convert to Unstored Calc: utility for (portal) sorting - sort by this field for text sorting">
+							<AutoEnter type="Calculated" prohibitModification="True" overwriteExisting="True" alwaysEvaluate="False">
+								<Calculated>
+									<Calculation>
+										<TableOccurrenceReference id="1065091" name="zzz_template" UUID="7B6DB006-1BB3-4AC5-A5E5-149BE985E378"></TableOccurrenceReference>
+										<Text><![CDATA[GetField( JSONGetElement ( zg_SORTSELECT ; "fieldName" ))]]></Text>
+									</Calculation>
+								</Calculated>
+							</AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="True" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="10" name="zk_recordID" fieldtype="Normal" datatype="Number" comment="Convert to UNSTORED calculation - get(RecordID)">
+							<AutoEnter type="Calculated" prohibitModification="True" overwriteExisting="True" alwaysEvaluate="False">
+								<Calculated>
+									<Calculation>
+										<TableOccurrenceReference id="1065091" name="zzz_template" UUID="7B6DB006-1BB3-4AC5-A5E5-149BE985E378"></TableOccurrenceReference>
+										<Text><![CDATA[Get(RecordID)]]></Text>
+									</Calculation>
+								</Calculated>
+							</AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="True" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="11" name="zf_deleteFlag" fieldtype="Normal" datatype="Number" comment="set to 1 to mark for deletion">
+							<AutoEnter type="ConstantData" prohibitModification="False">
+								<ConstantData>0</ConstantData>
+							</AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="False" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="12" name="zf_recordLock" fieldtype="Normal" datatype="Number" comment="0 = read, write, delete. 1 = read, write. 2 = read only">
+							<AutoEnter type="ConstantData" prohibitModification="False">
+								<ConstantData>0</ConstantData>
+							</AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="False" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="13" name="zg_TEMP" fieldtype="Normal" datatype="Text" comment="utility Global">
+							<AutoEnter type="" prohibitModification="False"></AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage global="True" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="14" name="zg_SORTSELECT" fieldtype="Normal" datatype="Text" comment="utility Global for (portal) sorting">
+							<AutoEnter type="" prohibitModification="False"></AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage global="True" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="15" name="zs_sumOfOne" fieldtype="Summary" datatype="Number" comment="">
+							<AutoEnter type="" prohibitModification="False"></AutoEnter>
+							<SummaryInfo restartEachGroup="False" summarizeRepetition="Together" operation="Total">
+								<SummaryField>
+									<FieldReference id="19" name="zc_one" UUID="A3AE5D75-DF1A-4207-9CF1-5D42FD1CBD40">
+										<BaseTableReference id="132" name="zzz_template" UUID="0F35F0CF-8B37-406F-87E8-F0468049A3D7"></BaseTableReference>
+									</FieldReference>
+								</SummaryField>
+							</SummaryInfo>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="16" name="zc_one" fieldtype="Calculated" datatype="Number" comment="constant - always 1">
+							<AutoEnter alwaysEvaluate="False"></AutoEnter>
+							<Storage storeCalculationResults="True" autoIndex="False" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<Calculation>
+								<TableOccurrenceReference id="1065091" name="zzz_template" UUID="7B6DB006-1BB3-4AC5-A5E5-149BE985E378"></TableOccurrenceReference>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="17" name="zk_sortindex" fieldtype="Normal" datatype="Number" comment="sorting utility - use auto enter serial number to supply a high value starting value">
+							<AutoEnter type="SerialNumber" prohibitModification="False">
+								<SerialNumber increment="1" nextvalue="900001" generate="OnCreation"></SerialNumber>
+							</AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage autoIndex="True" index="None" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="18" name="zs_listOfIds" fieldtype="Summary" datatype="Text" comment="">
+							<AutoEnter type="" prohibitModification="False"></AutoEnter>
+							<SummaryInfo restartEachGroup="False" summarizeRepetition="Together" operation="List">
+								<SummaryField>
+									<FieldReference id="1" name="id_tableName" UUID="8E6C72B9-DD6B-41EE-ADC2-3725012357B5">
+										<BaseTableReference id="132" name="zzz_template" UUID="0F35F0CF-8B37-406F-87E8-F0468049A3D7"></BaseTableReference>
+									</FieldReference>
+								</SummaryField>
+							</SummaryInfo>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="19" name="zg_SEARCH" fieldtype="Normal" datatype="Text" comment="">
+							<AutoEnter type="" prohibitModification="False"></AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage global="True" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="20" name="zg_VALLISTNUM_g" fieldtype="Normal" datatype="Number" comment="utility useful for valuelist by number from a table of values">
+							<AutoEnter type="" prohibitModification="False"></AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage global="True" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="21" name="zcu_foundCount" fieldtype="Calculated" datatype="Number" comment="">
+							<AutoEnter alwaysEvaluate="False"></AutoEnter>
+							<Storage storeCalculationResults="False" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<Calculation>
+								<TableOccurrenceReference id="1065091" name="zzz_template" UUID="7B6DB006-1BB3-4AC5-A5E5-149BE985E378"></TableOccurrenceReference>
+								<Text><![CDATA[Get(FoundCount)]]></Text>
+							</Calculation>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="22" name="zg_CALCINPUT" fieldtype="Normal" datatype="Text" comment="can be evaluated by zc_calcResultText">
+							<AutoEnter type="" prohibitModification="False"></AutoEnter>
+							<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
+							<Storage global="True" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="23" name="zcu_calcResultText" fieldtype="Calculated" datatype="Text" comment="">
+							<AutoEnter alwaysEvaluate="False"></AutoEnter>
+							<Storage storeCalculationResults="False" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<Calculation>
+								<TableOccurrenceReference id="1065091" name="zzz_template" UUID="7B6DB006-1BB3-4AC5-A5E5-149BE985E378"></TableOccurrenceReference>
+								<Text><![CDATA[Evaluate ( zg_CALCINPUT )]]></Text>
+							</Calculation>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+						<Field  id="24" name="zcu_calcResultNumber" fieldtype="Calculated" datatype="Number" comment="">
+							<AutoEnter alwaysEvaluate="False"></AutoEnter>
+							<Storage storeCalculationResults="False" global="False" maxRepetitions="1">
+								<LanguageReference name="English" id="21"></LanguageReference>
+							</Storage>
+							<Calculation>
+								<TableOccurrenceReference id="1065091" name="zzz_template" UUID="7B6DB006-1BB3-4AC5-A5E5-149BE985E378"></TableOccurrenceReference>
+								<Text><![CDATA[Evaluate ( zg_CALCINPUT )]]></Text>
+							</Calculation>
+							<TagList>#_FMI_0 </TagList>
+						</Field>
+
+					</ObjectList>
+
 </FMDefaultFields>
