@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <FMDefaultFields version="2.1.0.0" Source="19.0.1" locale="English">
 
-	<ObjectList membercount="24">
+	<ObjectList membercount="20">
 	
 		<Field  id="1" name="id_tableName" fieldtype="Normal" datatype="Text" comment="primary key">
 			<AutoEnter type="Calculated" prohibitModification="True" overwriteExisting="True" alwaysEvaluate="False">
@@ -187,18 +187,7 @@
 			<TagList>#_FMI_0 </TagList>
 		</Field>
 		
-		<Field  id="17" name="zcu_foundCount" fieldtype="Calculated" datatype="Number" comment="">
-			<AutoEnter alwaysEvaluate="False"></AutoEnter>
-			<Storage storeCalculationResults="False" global="False" maxRepetitions="1">
-				<LanguageReference name="English" id="21"></LanguageReference>
-			</Storage>
-			<Calculation>
-				<Text><![CDATA[Get(FoundCount)]]></Text>
-			</Calculation>
-			<TagList>#_FMI_0 </TagList>
-		</Field>
-		
-		<Field  id="18" name="zg_CALC_INPUT" fieldtype="Normal" datatype="Text" comment="a calulation to be evaluated by zcu_calcResultText and 		zcu_calcResultText ">
+		<Field  id="17" name="zg_CALC_INPUT" fieldtype="Normal" datatype="Text" comment="a calulation to be evaluated by zcu_calcResultText and 		zcu_calcResultText ">
 			<AutoEnter type="" prohibitModification="False"></AutoEnter>
 			<Validation type="OnlyDuringDataEntry" allowOverride="True" notEmpty="False" unique="False" existing="False"></Validation>
 			<Storage global="True" maxRepetitions="1">
@@ -207,7 +196,7 @@
 			<TagList>#_FMI_0 </TagList>
 		</Field>
 		
-		<Field  id="19" name="zcu_calcResultText" fieldtype="Calculated" datatype="Text" comment="">
+		<Field  id="18" name="zcu_calcResultText" fieldtype="Calculated" datatype="Text" comment="">
 			<AutoEnter alwaysEvaluate="False"></AutoEnter>
 			<Storage storeCalculationResults="False" global="False" maxRepetitions="1">
 				<LanguageReference name="English" id="21"></LanguageReference>
@@ -218,7 +207,7 @@
 			<TagList>#_FMI_0 </TagList>
 		</Field>
 		
-		<Field  id="20" name="zcu_calcResultNumber" fieldtype="Calculated" datatype="Number" comment="">
+		<Field  id="19" name="zcu_calcResultNumber" fieldtype="Calculated" datatype="Number" comment="">
 			<AutoEnter alwaysEvaluate="False"></AutoEnter>
 			<Storage storeCalculationResults="False" global="False" maxRepetitions="1">
 				<LanguageReference name="English" id="21"></LanguageReference>
@@ -229,7 +218,7 @@
 			<TagList>#_FMI_0 </TagList>
 		</Field>
 		
-		<Field  id="21" name="zcu_modCount" fieldtype="Calculated" datatype="Number" comment="Get(recordModificationCount)">
+		<Field  id="20" name="zcu_modCount" fieldtype="Calculated" datatype="Number" comment="Get(recordModificationCount)">
 			<AutoEnter alwaysEvaluate="False"></AutoEnter>
 			<Storage storeCalculationResults="False" global="False" maxRepetitions="1">
 				<LanguageReference name="English" id="21"></LanguageReference>
