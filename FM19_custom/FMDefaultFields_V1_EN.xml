@@ -229,7 +229,7 @@
 			<TagList>#_FMI_0 </TagList>
 		</Field>
 		
-		<Field  id="21" name="zc_modCount" fieldtype="Calculated" datatype="Number" comment="Get(recordModificationCount)">
+		<Field  id="21" name="zcu_modCount" fieldtype="Calculated" datatype="Number" comment="Get(recordModificationCount)">
 			<AutoEnter alwaysEvaluate="False"></AutoEnter>
 			<Storage storeCalculationResults="False" global="False" maxRepetitions="1">
 				<LanguageReference name="English" id="21"></LanguageReference>
